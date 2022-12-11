@@ -36,15 +36,6 @@ export class StarshipDetailComponent implements OnInit {
     this.imgId = this.urlRoute.split('/')[5];
     console.log(this.imgId);
     
-
-
-/*
-    var pics = document.querySelectorAll("img");
-pics.forEach(function(pic) {
-  if (pic.attr('id') == 2) {
-    // do something
-  }
-})*/
   }
 
   getStarshipSelected() {
