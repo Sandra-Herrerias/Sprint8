@@ -1,5 +1,9 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
+import { User } from 'src/app/model/user';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -7,18 +11,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  email!: string;
-  password!: string;
-  confirmPassword!: string;
+  registerForm!: FormGroup;
 
-  constructor() { }
+  submitted = false;
+  message: string = "";
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private userService: UsersService) { }
 
   ngOnInit(): void {
+    this.registerForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      username: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
+
+
   }
 
-  register() {
-    console.log(this.email);
-    console.log(this.password);
+  // convenience getter for easy access to form fields
+  get f() {
+    return this.registerForm.controls;
   }
 
+  onSubmit() {
+    this.submitted = true;
+   
+    // stop here if form is invalid
+    if (this.registerForm.valid) {
+      console.log("valid");
+      this.userService.register(this.registerForm.value);
+    }else{
+      console.log("no valid");
+ return;
+    }
+console.log(this.registerForm.value);
+      
+  }
 }
+
+

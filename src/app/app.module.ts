@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StarshipsService } from './services/starships.service';
 import { StarshipDetailComponent } from './components/starship-detail/starship-detail.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     InfiniteScrollModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [StarshipsService],
   bootstrap: [AppComponent]
