@@ -2,6 +2,9 @@
     <div *ngIf="starshipSelected">
         <div class="card justify-content-center">
             <img src='{{ "../../../assets/img/starships/" + imgId + ".jpg" }}' alt="starshipImage" (error)="handleMissingImage($event)">
+            <div class="card-body">
+                <p class="card-text">{{ starshipSelected.name | uppercase}}</p>
+            </div>
         </div>
         <!-- row 1 -->
         <div class="my-3 row justify-content-center">
