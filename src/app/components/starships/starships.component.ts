@@ -12,6 +12,10 @@ export class StarshipsComponent implements OnInit {
 
   starships:Array<Starship> = [];
   starship!:Starship;
+  page = 1;
+  throttle = 0;
+  distance = 2;
+
   constructor(private serviceStarships: StarshipsService,
     private router:Router) { }
 
@@ -21,9 +25,18 @@ export class StarshipsComponent implements OnInit {
   }
 
   getList():void{
-      this.serviceStarships.getStarships().subscribe( data => {
+      this.serviceStarships.getStarships(this.page).subscribe( (data:any) => {
       this.starships = data.results;
     });
+  }
+
+
+  onScroll(): void {
+    this.serviceStarships
+      .getStarships(++this.page)
+      .subscribe((data: any) => {
+        this.starships.push(...data.results);
+      });
   }
 
   getDetail(e:any){

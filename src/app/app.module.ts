@@ -12,6 +12,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StarshipsService } from './services/starships.service';
 import { StarshipDetailComponent } from './components/starship-detail/starship-detail.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { StarshipDetailComponent } from './components/starship-detail/starship-d
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    InfiniteScrollModule
   ],
   providers: [StarshipsService],
   bootstrap: [AppComponent]
