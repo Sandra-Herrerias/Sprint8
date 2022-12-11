@@ -1,0 +1,20 @@
+@font-face {
+    font-family: fontBorder;
+    src: url(../../../assets/fonts/sf-distant-galaxy/SFDistantGalaxyOutline.ttf);
+}
+
+.textBtn {
+    font-family: fontBorder;
+    color: yellow;
+    margin-right: 1rem;
+}
+
+.card-body {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .rightCol {
+        margin-top: 1rem;
+    }
+}

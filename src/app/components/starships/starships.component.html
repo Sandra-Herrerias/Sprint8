@@ -1,0 +1,13 @@
+<div class="container">
+    <div *ngIf="starships">
+        <div class="my-3" *ngFor="let starship of starships; let i = index">
+            <div class="card text-white bg-dark" (click)="getDetail(starship)">
+                <div class="card-body">
+                    <h5 class="card-title">{{ starship.name }}</h5>
+                    <p class="card-text">{{ starship.model }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-danger">View More</button>
+</div>

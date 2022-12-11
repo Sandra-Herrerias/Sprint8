@@ -1,0 +1,26 @@
+@import url(//db.onlinewebfonts.com/c/c5e0077a7615bfbe5d959e1cf56e6c9f?family=DINNextSlabW01-Regular);
+@font-face {
+    font-family: "DINNextSlabW01-Regular";
+    src: url("//db.onlinewebfonts.com/t/c5e0077a7615bfbe5d959e1cf56e6c9f.eot");
+    src: url("//db.onlinewebfonts.com/t/c5e0077a7615bfbe5d959e1cf56e6c9f.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/c5e0077a7615bfbe5d959e1cf56e6c9f.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/c5e0077a7615bfbe5d959e1cf56e6c9f.woff") format("woff"), url("//db.onlinewebfonts.com/t/c5e0077a7615bfbe5d959e1cf56e6c9f.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/c5e0077a7615bfbe5d959e1cf56e6c9f.svg#DINNextSlabW01-Regular") format("svg");
+}
+
+body {
+    background-image: url(./assets/img/mainPage/background-stars-mobile_338a9d3c.jpeg);
+    background-position: revert;
+    background-size: inherit;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100%;
+    font-weight: 400;
+    font-family: "DINNextSlabW01-Regular";
+    color: #b9b9b9;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    line-height: 1.5;
+    position: relative;
+    cursor: auto;
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+}

@@ -1,0 +1,24 @@
+@font-face {
+    font-family: fontBorder;
+    src: url(../../../assets/fonts/sf-distant-galaxy/SFDistantGalaxyOutline.ttf);
+}
+
+.textBtn {
+    font-family: fontBorder;
+    color: yellow;
+    text-decoration: none;
+}
+
+.backColorBtn {
+    border: 1px solid yellow;
+    color: yellow;
+    padding: 14px 28px;
+    font-size: 3em;
+    font-weight: lighter;
+    cursor: pointer;
+}
+
+.backColorBtn:hover {
+    font-weight: 700;
+    border: 2px solid yellow;
+}

@@ -1,0 +1,17 @@
+.logo-row {
+    width: 250px;
+    margin: 0 auto;
+}
+
+.logo {
+    height: 120px;
+    width: 100%;
+    max-width: 203px;
+    max-height: 88px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    box-sizing: border-box;
+    background-size: contain;
+    background: left / cover url(../../../assets/img/mainPage/sw_logo_stacked-336c62367939.png);
+}

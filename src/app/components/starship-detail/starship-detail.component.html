@@ -1,0 +1,126 @@
+<div class="container">
+    <div *ngIf="starshipSelected">
+        <img src='{{ "../../../assets/img/starships/" + imgId + ".jpg" }}' alt="starshipImage" (error)="handleMissingImage($event)">
+
+        <!-- row 1 -->
+        <div class="my-3 row justify-content-center">
+            <div class="card text-white bg-dark col-md-5 col-12 mx-2">
+                <div class="card-body">
+                    <h5 class="card-title textBtn">Name </h5>
+                    <p class="card-text">{{ starshipSelected.name }}</p>
+                </div>
+            </div>
+            <div class="rightCol card text-white bg-dark col-md-5 col-12 mx-2">
+                <div class="card-body">
+                    <h5 class="card-title textBtn">Model </h5>
+                    <p class="card-text">{{ starshipSelected.model }}</p>
+                </div>
+            </div>
+        </div>
+        <!-- row 2 -->
+        <div class="my-3 row justify-content-center">
+            <div class="card text-white bg-dark col-md-5 col-12 mx-2">
+                <div class="card-body">
+                    <h5 class="card-title textBtn">Manufacturer </h5>
+                    <p class="card-text">{{ starshipSelected.manufacturer }}</p>
+                </div>
+            </div>
+            <div class="rightCol card text-white bg-dark col-md-5 col-12 mx-2">
+                <div class="card-body">
+                    <h5 class="card-title textBtn">Cost in credits </h5>
+                    <p class="card-text">{{ starshipSelected.cost_in_credits }}</p>
+                </div>
+            </div>
+        </div>
+        <!-- row 3 -->
+        <div class="my-3 row justify-content-center">
+            <div class="card text-white bg-dark col-md-5 col-12 mx-2">
+                <div class="card-body">
+                    <h5 class="card-title textBtn">Length </h5>
+                    <p class="card-text">{{ starshipSelected.length }}</p>
+                </div>
+            </div>
+            <div class="rightCol card text-white bg-dark col-md-5 col-12 mx-2">
+                <div class="card-body">
+                    <h5 class="card-title textBtn">Max atmosphering speed </h5>
+                    <p class="card-text">{{ starshipSelected.max_atmosphering_speed }}</p>
+                </div>
+            </div>
+        </div>
+        <!-- row 4 -->
+        <div class="my-3 row justify-content-center">
+            <div class="card text-white bg-dark col-md-5 col-12 mx-2">
+                <div class="card-body">
+                    <h5 class="card-title textBtn">Crew </h5>
+                    <p class="card-text">{{ starshipSelected.crew }}</p>
+                </div>
+            </div>
+            <div class="rightCol card text-white bg-dark col-md-5 col-12 mx-2">
+                <div class="card-body">
+                    <h5 class="card-title textBtn">Passengers </h5>
+                    <p class="card-text">{{ starshipSelected.passengers }}</p>
+                </div>
+            </div>
+        </div>
+        <!-- row 5 -->
+        <div class="my-3 row justify-content-center">
+            <div class="card text-white bg-dark col-md-5 col-12 mx-2">
+                <div class="card-body">
+                    <h5 class="card-title textBtn">Cargo capacity </h5>
+                    <p class="card-text">{{ starshipSelected.cargo_capacity }}</p>
+                </div>
+            </div>
+            <div class="rightCol card text-white bg-dark col-md-5 col-12 mx-2">
+                <div class="card-body">
+                    <h5 class="card-title textBtn">Consumables </h5>
+                    <p class="card-text">{{ starshipSelected.consumables }}</p>
+                </div>
+            </div>
+        </div>
+        <!-- row 6 -->
+        <div class="my-3 row justify-content-center">
+            <div class="card text-white bg-dark col-md-5 col-12 mx-2">
+                <div class="card-body">
+                    <h5 class="card-title textBtn">Hyperdrive_rating </h5>
+                    <p class="card-text">{{ starshipSelected.hyperdrive_rating }}</p>
+                </div>
+            </div>
+            <div class="rightCol card text-white bg-dark col-md-5 col-12 mx-2">
+                <div class="card-body">
+                    <h5 class="card-title textBtn">MGLT </h5>
+                    <p class="card-text">{{ starshipSelected.MGLT }}</p>
+                </div>
+            </div>
+        </div>
+        <!-- row 7 -->
+        <div class="my-3 row justify-content-center">
+            <div class="card text-white bg-dark col-md-5 col-12 mx-2">
+                <div class="card-body">
+                    <h5 class="card-title textBtn">Starship class </h5>
+                    <p class="card-text">{{ starshipSelected.starship_class }}</p>
+                </div>
+            </div>
+            <div class="rightCol card text-white bg-dark col-md-5 col-12 mx-2">
+                <div class="card-body">
+                    <h5 class="card-title textBtn">Created </h5>
+                    <p class="card-text">{{ starshipSelected.created }}</p>
+                </div>
+            </div>
+        </div>
+        <!-- row 8 -->
+        <div class="my-3 row justify-content-center">
+            <div class="card text-white bg-dark col-md-5 col-12 mx-2">
+                <div class="card-body">
+                    <h5 class="card-title textBtn">Edited </h5>
+                    <p class="card-text">{{ starshipSelected.edited }}</p>
+                </div>
+            </div>
+            <div class="rightCol card text-white bg-dark col-md-5 col-12 mx-2">
+                <div class="card-body">
+                    <h5 class="card-title textBtn">Url </h5>
+                    <p class="card-text">{{ starshipSelected.url }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
