@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { User } from 'src/app/model/user';
-import { UsersService } from 'src/app/services/users.service';
+
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,30 +8,9 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class NavBarComponent implements OnInit {
 
-  loggedIn!: User | null;
 
-  constructor(public router: Router, private userService: UsersService) { }
+  constructor() {}
 
-  ngOnInit(): void {
-    this.userService.user.subscribe((result: User) => {
-       console.log(result); 
-      if (result) {
-        this.loggedIn = {
-          firstName: result.firstName, 
-          lastName: result.lastName, 
-          password: result.password, 
-          username: result.username,
-          id:result.id
-        };
-      }
-     
-      // console.log(this.loggedIn)
-    })
-  }
-
-  logout(): void {
-    this.userService.logout();
-    
-  }
+  ngOnInit(): void {}
 
 }

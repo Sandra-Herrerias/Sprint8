@@ -1,5 +1,20 @@
-<div class="row">
-    <div class="logo-row">
-        <div class="logo my-4"></div>
+<div class="container">
+    <div class="headerContent">
+        <div class="l">
+            <div class="l-content"></div>
+        </div>
+        <div class="m">
+            <div class="m-content">
+                <div class="logo-row">
+                    <div class="logo my-4"></div>
+                </div>
+            </div>
+        </div>
+        <div class="r midRight">
+            <div class="r-content">
+                <a *ngIf="loggedIn == null" class=" fontBorder" routerLink="login">LOG IN </a>
+                <a *ngIf="loggedIn" class=" fontBorder" (click)="logout()">LOG OUT</a> //
+                <a class=" fontBorder" routerLink="register">SIGN IN</a></div>
+        </div>
     </div>
 </div>
