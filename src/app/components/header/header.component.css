@@ -73,8 +73,18 @@ a:hover::before {
 }
 
 .r {
-    width: 50%;
+    width: 45%;
     flex-shrink: 1;
     display: flex;
     flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+    .headerContent {
+        flex-direction: column;
+        text-align: center;
+    }
+    .r {
+        width: 100%;
+    }
 }

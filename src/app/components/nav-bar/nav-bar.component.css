@@ -33,7 +33,3 @@ a::before {
 a:hover::before {
     transform: scaleX(1);
 }
-
-form {
-    float: right;
-}
