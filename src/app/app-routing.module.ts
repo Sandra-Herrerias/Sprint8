@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { StarshipsComponent } from './components/starships/starships.component';
+import { GuardroutesGuard } from './security/guardroutes.guard';
 
 const routes: Routes = [{
   path: 'home',
@@ -12,7 +13,8 @@ const routes: Routes = [{
 },
 {
   path: 'starships',
-  component: StarshipsComponent
+  component: StarshipsComponent,
+  canActivate: [GuardroutesGuard]
 },
 {
   path: 'detail',

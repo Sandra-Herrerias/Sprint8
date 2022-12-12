@@ -1,20 +1,21 @@
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { User } from '../model/user';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
   usersStored!: User[];
-
+ 
   private allusers$ = new Subject<User[]>();
 
   private userSubject: BehaviorSubject<User>;
   public user: Observable<User>;
 
 
-  constructor() {
+  constructor(private route: Router) {
     this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')!));//estat inicial del BehaviorSubject
     this.user = this.userSubject.asObservable();////part public del Behabiour Subject que s'hi actualitza
     this.usersStored = [];
@@ -36,13 +37,28 @@ export class UsersService {
       localStorage.setItem('currentUser', JSON.stringify(userFound));
       console.log("USER QUE EXISTEIX: " + JSON.stringify(userFound));
       console.log(JSON.stringify(user));
+      this.userSubject.next(userFound);
+      this.route.navigate(['/starships']);
+
     } else {
       console.log("NO EXISTEIX: " + JSON.stringify(userFound));
       alert("Wrong credentials");
+     
     }
 
     console.log(user.password);
+   
+  }
 
+
+  logout(): void {
+    localStorage.removeItem("currentUser");
+    this.userSubject.next(JSON.parse(null!));
+
+    this.route.navigate(['/home'])
+      .then(() => {
+        window.location.reload();
+      });
   }
 
   register(user: User) {
@@ -63,7 +79,15 @@ export class UsersService {
     console.log(this.allusers$);
   }
 
+
+
+
   getUsers$(): Observable<User[]> {
     return this.allusers$.asObservable();
+  }
+
+  public usuariData(): User | any {
+    // return this.usuariSubject;
+    return this.userSubject.value;
   }
 }

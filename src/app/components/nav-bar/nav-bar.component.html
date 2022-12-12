@@ -12,7 +12,11 @@
                 </ul>
 
                 <form class="d-flex">
-                    <a class="nav-link fontBorder" routerLink="login">LOG IN</a>
+                    <a class="nav-link fontBorder" routerLink="login">
+                        <button *ngIf="loggedIn == null" type="button" class="btn btn-danger">
+                            Iniciar Sesión </button></a>
+                    <a *ngIf="loggedIn" (click)="logout()"> <button type="button" class="btn btn-danger">
+                            Cerrar Sesión</button></a>
                     <a class="nav-link fontBorder" routerLink="register">SIGN IN</a>
                 </form>
             </div>
