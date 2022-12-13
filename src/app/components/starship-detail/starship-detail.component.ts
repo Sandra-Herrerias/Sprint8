@@ -1,10 +1,8 @@
-import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { StarshipsService } from 'src/app/services/starships.service';
 import { Starship } from 'src/app/model/starship';
 import { ActivatedRoute } from '@angular/router';
-import { __param } from 'tslib';
-import { threadId } from 'worker_threads';
+
 
 @Component({
   selector: 'app-starship-detail',
@@ -16,6 +14,8 @@ export class StarshipDetailComponent implements OnInit {
   starshipSelected!: Starship;
   urlRoute!: string;
   imgId!:string;
+  pilots:boolean = false;
+
   constructor(private serviceStarships: StarshipsService,
     private route: ActivatedRoute) {
 
@@ -41,6 +41,10 @@ export class StarshipDetailComponent implements OnInit {
   getStarshipSelected() {
     this.serviceStarships.getStarship(this.urlRoute).subscribe(data => {
       this.starshipSelected = data;
+     
+      if (this.starshipSelected.pilots!.length != 0) { 
+        this.pilots = true;
+      }
     });
   }
 }

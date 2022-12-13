@@ -126,5 +126,8 @@
                 </div>
             </div>
         </div>
+        <div *ngIf="pilots">
+            <app-pilots [starshipDetails]="starshipSelected"></app-pilots>
+        </div>
     </div>
 </div>
