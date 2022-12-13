@@ -15,6 +15,7 @@ import { StarshipDetailComponent } from './components/starship-detail/starship-d
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PilotsComponent } from './components/pilots/pilots.component';
+import { PilotDetailComponent } from './components/pilot-detail/pilot-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PilotsComponent } from './components/pilots/pilots.component';
     NavBarComponent,
     HeaderComponent,
     StarshipDetailComponent,
-    PilotsComponent
+    PilotsComponent,
+    PilotDetailComponent
   ],
   imports: [
     BrowserModule,

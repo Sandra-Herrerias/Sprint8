@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { StarshipsComponent } from './components/starships/starships.component';
 import { GuardroutesGuard } from './security/guardroutes.guard';
+import { PilotDetailComponent } from './components/pilot-detail/pilot-detail.component';
 
 const routes: Routes = [{
   path: 'home',
@@ -19,6 +20,9 @@ const routes: Routes = [{
 {
   path: 'detail',
   component: StarshipDetailComponent
+},{
+  path: 'pilotDetail',
+  component: PilotDetailComponent
 },
 {
   path: 'login',

@@ -22,9 +22,10 @@ export class StarshipsService {
   }
 
 
-  getStarship(url: string): Observable<any> {
+  getResource(url: string): Observable<any> {
     return this.http.get(url);
   }
+
 
 
 }

@@ -39,7 +39,7 @@ export class StarshipDetailComponent implements OnInit {
   }
 
   getStarshipSelected() {
-    this.serviceStarships.getStarship(this.urlRoute).subscribe(data => {
+    this.serviceStarships.getResource(this.urlRoute).subscribe(data => {
       this.starshipSelected = data;
      
       if (this.starshipSelected.pilots!.length != 0) { 
