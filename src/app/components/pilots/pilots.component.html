@@ -3,11 +3,17 @@
         {{pilot | json}}
     </td>
 </div>
-<div *ngFor="let pilot of pilots">
-    <div class="card">
-        <img src='{{ "../../../../../assets/img/characters/" + pilot.id + ".jpg" }}' class="card-img-top" alt="pilotImage" (error)="handleMissingImage($event)" (click)="navigate()">
-        <div class="card-body">
-            <p class="card-text">{{pilot.name}}</p>
+
+
+<div class="centered">
+    <section class="cards">
+        <div *ngFor="let pilot of pilots">
+            <div class="card mt-4 text-white bg-dark">
+                <img src='{{ "../../../../../assets/img/characters/" + pilot.id + ".jpg" }}' class="card-img-top" alt="pilotImage" (error)="handleMissingImage($event)" (click)="navigate()">
+                <div class="card-body">
+                    <p class="card-text">{{pilot.name | uppercase}}</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 </div>
