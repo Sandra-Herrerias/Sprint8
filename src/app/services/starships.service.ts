@@ -16,7 +16,7 @@ export class StarshipsService {
 
   getStarships(page: number): Observable<Starship[]> {
 
-  return this.http.get(
+    return this.http.get(
       `https://swapi.dev/api/starships/?page=${page}`
     ) as Observable<Starship[]>;
   }
