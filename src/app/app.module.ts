@@ -16,6 +16,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PilotsComponent } from './components/pilots/pilots.component';
 import { PilotDetailComponent } from './components/pilot-detail/pilot-detail.component';
+import { FilmsComponent } from './components/films/films.component';
+import { FilmDetailComponent } from './components/film-detail/film-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { PilotDetailComponent } from './components/pilot-detail/pilot-detail.com
     HeaderComponent,
     StarshipDetailComponent,
     PilotsComponent,
-    PilotDetailComponent
+    PilotDetailComponent,
+    FilmsComponent,
+    FilmDetailComponent
   ],
   imports: [
     BrowserModule,

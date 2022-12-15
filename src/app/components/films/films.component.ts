@@ -1,19 +1,18 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Pilot } from 'src/app/model/pilot';
 import { Starship } from 'src/app/model/starship';
 import { StarshipsService } from 'src/app/services/starships.service';
 import { Router } from '@angular/router';
+import { Film } from 'src/app/model/film';
 
 @Component({
-  selector: 'app-pilots',
-  templateUrl: './pilots.component.html',
-  styleUrls: ['./pilots.component.css']
+  selector: 'app-films',
+  templateUrl: './films.component.html',
+  styleUrls: ['./films.component.css']
 })
-export class PilotsComponent implements OnInit {
-
+export class FilmsComponent {
   @Input() starshipDetails!: Starship;
 
-  pilots: Pilot[] = [];
+  films: Film[] = [];
 
   constructor(private serviceStarships: StarshipsService, private router: Router) {}
 
@@ -22,17 +21,18 @@ export class PilotsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getPilots();
+    this.getFilms();
   }
 
 
-  getPilots(): void {
-    this.starshipDetails.pilots!.forEach((pilot: string) => {
+  getFilms(): void {
+    this.starshipDetails.films!.forEach((film: string) => {
 
-      this.serviceStarships.getResource(pilot).subscribe((data: any) => {
+
+      this.serviceStarships.getResource(film).subscribe((data: any) => {
 
         data.id = data.url.split('/')[5];
-        this.pilots.push(data);
+        this.films.push(data);
 
 
       });
@@ -41,6 +41,6 @@ export class PilotsComponent implements OnInit {
 
   getDetail(e:any) {
     console.log(e);
-    this.router.navigate(['/pilotDetail'], {queryParams: {url: e.url}});
+    this.router.navigate(['/filmDetail'], {queryParams: {url: e.url}});
   }
 }
