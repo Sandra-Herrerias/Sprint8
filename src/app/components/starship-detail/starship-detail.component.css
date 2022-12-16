@@ -48,6 +48,6 @@
     .card {
         display: grid;
         grid-template-columns: 2fr 1fr;
-        max-width: 50rem;
+        max-width: 55rem;
     }
 }

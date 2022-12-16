@@ -16,9 +16,7 @@ export class PilotDetailComponent implements OnInit {
   pilotImg!:string;
   pilotFilm!:string;
 id!:string;
-idFilm!:string;
-film:string =  "";
-films!:string[];
+
 
   constructor(private serviceStarships: StarshipsService,
     private route: ActivatedRoute) {}
@@ -30,18 +28,12 @@ films!:string[];
     console.log(this.urlRoute);
     this.getPilotSelected();
     this.getPilotImg();
-    
- this.getFilm();
   }
 
   getPilotSelected() {
     this.serviceStarships.getResource(this.urlRoute).subscribe(data => {
       this.pilotDetails = data;
-      this.films = this.pilotDetails.films
       console.log(this.pilotDetails);
-      console.log( this.films);
-      this.film = this.films[0];
-      console.log( this.film);
     });
   }
 
@@ -56,18 +48,6 @@ films!:string[];
       });
   }
   
-  getFilm(): void {
-    this.serviceStarships.getResource(this.film).subscribe((data: any) => {
-
-      this.idFilm = data.url.split('/')[5];
-      this.pilotFilm= this.idFilm;
-
-      console.log( this.idFilm);
-
-    });
-
-
-}
 
 
   

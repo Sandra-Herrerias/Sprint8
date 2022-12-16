@@ -131,10 +131,12 @@
                 </div>
             </div>
         </div>
+        <h2 class="text-center m-3 mt-5">CHARACTERS</h2>
         <div *ngIf="pilots">
             <app-pilots [starshipDetails]="starshipSelected"></app-pilots>
         </div>
-        <div *ngIf="films">
+        <h2 class="text-center m-3 mt-5">FILMS</h2>
+        <div *ngIf="films" class="mb-5">
             <app-films [starshipDetails]="starshipSelected"></app-films>
         </div>
     </div>

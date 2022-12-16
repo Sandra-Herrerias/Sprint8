@@ -4,7 +4,9 @@
         <section class="cards">
             <div class="card bg-dark">
                 <img src='{{ "../../../../../assets/img/characters/" + id + ".jpg" }}' class="card-img-top" alt="pilotImage" />
-                <h2 class="m-5">{{pilotDetails.name | uppercase}}</h2>
+                <div class="card-body">
+                    <h2 class="m-5">{{pilotDetails.name | uppercase}}</h2>
+                </div>
             </div>
         </section>
     </div>
@@ -34,5 +36,3 @@
         <p>{{pilotDetails.eye_color}}</p>
     </div>
 </div>
-
-<p>{{pilotDetails | json}}</p>

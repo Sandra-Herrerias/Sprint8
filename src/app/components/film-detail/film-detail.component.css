@@ -36,6 +36,6 @@
     .card {
         display: grid;
         grid-template-columns: 2fr 1fr;
-        max-width: 40rem;
+        max-width: 45rem;
     }
 }
