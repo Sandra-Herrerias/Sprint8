@@ -1,11 +1,16 @@
 <div class="container">
     <div *ngIf="starshipSelected">
-        <div class="card justify-content-center">
-            <img src='{{ "../../../assets/img/starships/" + imgId + ".jpg" }}' alt="starshipImage" (error)="handleMissingImage($event)">
-            <div class="card-body">
-                <p class="card-text">{{ starshipSelected.name | uppercase}}</p>
-            </div>
+        <div class="centered">
+            <section class="cards">
+                <div class="card m-4 text-white bg-dark">
+                    <img src='{{ "../../../assets/img/starships/" + imgId + ".jpg" }}' alt="starshipImage" (error)="handleMissingImage($event)">
+                    <div class="card-body">
+                        <h2 class="card-text">{{ starshipSelected.name | uppercase}}</h2>
+                    </div>
+                </div>
+            </section>
         </div>
+
         <!-- row 1 -->
         <div class="my-3 row justify-content-center">
             <div class="card text-white bg-dark col-md-5 col-12 mx-2">
@@ -128,6 +133,9 @@
         </div>
         <div *ngIf="pilots">
             <app-pilots [starshipDetails]="starshipSelected"></app-pilots>
+        </div>
+        <div *ngIf="films">
+            <app-films [starshipDetails]="starshipSelected"></app-films>
         </div>
     </div>
 </div>

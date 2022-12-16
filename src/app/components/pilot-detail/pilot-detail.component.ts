@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Pilot } from 'src/app/model/pilot';
+import { Starship } from 'src/app/model/starship';
 import { StarshipsService } from 'src/app/services/starships.service';
 
 @Component({
@@ -12,6 +13,13 @@ export class PilotDetailComponent implements OnInit {
 
   pilotDetails!: Pilot;
   urlRoute!: string;
+  pilotImg!:string;
+  pilotFilm!:string;
+id!:string;
+idFilm!:string;
+film:string =  "";
+films!:string[];
+
   constructor(private serviceStarships: StarshipsService,
     private route: ActivatedRoute) {}
 
@@ -21,13 +29,46 @@ export class PilotDetailComponent implements OnInit {
     });
     console.log(this.urlRoute);
     this.getPilotSelected();
+    this.getPilotImg();
+    
+ this.getFilm();
   }
 
   getPilotSelected() {
     this.serviceStarships.getResource(this.urlRoute).subscribe(data => {
       this.pilotDetails = data;
-     
+      this.films = this.pilotDetails.films
       console.log(this.pilotDetails);
+      console.log( this.films);
+      this.film = this.films[0];
+      console.log( this.film);
     });
   }
+
+  getPilotImg(): void {
+      this.serviceStarships.getResource(this.urlRoute!).subscribe((data: any) => {
+
+        this.id = data.url.split('/')[5];
+        this.pilotImg= this.id;
+
+        console.log( this.id);
+
+      });
+  }
+  
+  getFilm(): void {
+    this.serviceStarships.getResource(this.film).subscribe((data: any) => {
+
+      this.idFilm = data.url.split('/')[5];
+      this.pilotFilm= this.idFilm;
+
+      console.log( this.idFilm);
+
+    });
+
+
+}
+
+
+  
 }

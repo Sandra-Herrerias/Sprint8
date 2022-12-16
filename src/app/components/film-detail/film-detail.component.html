@@ -1,1 +1,39 @@
-<p>film-detail works!</p>
+<div *ngIf="filmDetails" class="row justify-content-center m-5">
+
+    <div class="container centered mb-5">
+        <section class="cards">
+            <div class="card bg-dark">
+                <img src='{{ "../../../../../assets/img/films/" + id + ".jpg" }}' class="card-img-top" alt="filmImage" />
+                <h2 class="m-5">{{filmDetails.title | uppercase}}</h2>
+            </div>
+        </section>
+    </div>
+
+    <div class="col">
+        <h3>Title</h3>
+        <p>{{filmDetails.title}}</p>
+    </div>
+    <div class="col">
+        <h3>Director</h3>
+        <p>{{filmDetails.director}}</p>
+    </div>
+    <div class="col">
+        <h3>Producer</h3>
+        <p>{{filmDetails.producer}}</p>
+    </div>
+    <div class="col">
+        <h3>Release Date</h3>
+        <p>{{filmDetails.release_date}}</p>
+    </div>
+    <div class="col">
+        <h3>Opening Crawl</h3>
+        <p>{{filmDetails.opening_crawl }}
+        </p>
+    </div>
+    <div class="col">
+        <h3>Episode Id</h3>
+        <p>{{filmDetails.episode_id}}</p>
+    </div>
+</div>
+
+<p>{{filmDetails | json}}</p>

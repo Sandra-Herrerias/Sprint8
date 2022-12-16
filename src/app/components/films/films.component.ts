@@ -22,19 +22,18 @@ export class FilmsComponent {
 
   ngOnInit(): void {
     this.getFilms();
+   
   }
 
 
   getFilms(): void {
     this.starshipDetails.films!.forEach((film: string) => {
 
-
       this.serviceStarships.getResource(film).subscribe((data: any) => {
 
         data.id = data.url.split('/')[5];
         this.films.push(data);
-
-
+        console.log(this.films);
       });
     });
   }

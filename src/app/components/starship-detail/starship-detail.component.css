@@ -9,12 +9,45 @@
     margin-right: 1rem;
 }
 
-.card-body {
-    display: flex;
-}
-
 @media (max-width: 768px) {
     .rightCol {
         margin-top: 1rem;
+    }
+}
+
+.cards {
+    display: flex;
+    align-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container {
+    container-type: inline-size;
+    container-name: sidebar;
+}
+
+
+/* Default heading styles for the card title */
+
+.card h2 {
+    font-size: 1em;
+}
+
+
+/* Container query applied if the container is larger than 700px */
+
+@container (min-width: 700px) {
+    .card h2 {
+        font-size: 2em;
+    }
+}
+
+@container sidebar (min-width: 700px) {
+    .card {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        max-width: 50rem;
     }
 }

@@ -1,2 +1,38 @@
-<p>pilot-detail works!</p>
+<div *ngIf="pilotDetails" class="row justify-content-center m-5">
+
+    <div class="container centered mb-5">
+        <section class="cards">
+            <div class="card bg-dark">
+                <img src='{{ "../../../../../assets/img/characters/" + id + ".jpg" }}' class="card-img-top" alt="pilotImage" />
+                <h2 class="m-5">{{pilotDetails.name | uppercase}}</h2>
+            </div>
+        </section>
+    </div>
+
+    <div class="col">
+        <h3>Name</h3>
+        <p>{{pilotDetails.name}}</p>
+    </div>
+    <div class="col">
+        <h3>Height</h3>
+        <p>{{pilotDetails.height}}</p>
+    </div>
+    <div class="col">
+        <h3>Mass</h3>
+        <p>{{pilotDetails.mass}}</p>
+    </div>
+    <div class="col">
+        <h3>Hair Color</h3>
+        <p>{{pilotDetails.hair_color}}</p>
+    </div>
+    <div class="col">
+        <h3>Skin Color</h3>
+        <p>{{pilotDetails.skin_color}}</p>
+    </div>
+    <div class="col">
+        <h3>Eye Color</h3>
+        <p>{{pilotDetails.eye_color}}</p>
+    </div>
+</div>
+
 <p>{{pilotDetails | json}}</p>

@@ -15,6 +15,7 @@ export class StarshipDetailComponent implements OnInit {
   urlRoute!: string;
   imgId!:string;
   pilots:boolean = false;
+  films:boolean = false;
 
   constructor(private serviceStarships: StarshipsService,
     private route: ActivatedRoute) {
@@ -44,6 +45,10 @@ export class StarshipDetailComponent implements OnInit {
      
       if (this.starshipSelected.pilots!.length != 0) { 
         this.pilots = true;
+      }
+
+      if (this.starshipSelected.films!.length != 0) { 
+        this.films = true;
       }
     });
   }

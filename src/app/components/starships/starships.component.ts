@@ -41,7 +41,6 @@ export class StarshipsComponent implements OnInit {
 
   getDetail(e:any){
 
-    //this.router.navigateByUrl('/detail');
     this.router.navigate(['/detail'], {queryParams: {url: e.url}});
   }
 

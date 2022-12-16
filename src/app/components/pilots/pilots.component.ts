@@ -23,6 +23,7 @@ export class PilotsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPilots();
+    console.log(this.starshipDetails.films);
   }
 
 

@@ -2,7 +2,7 @@
     <section class="cards">
         <div *ngFor="let film of films">
             <div class="card mt-4 text-white bg-dark">
-                <img src='{{ "../../../../../assets/img/characters/" + film.id + ".jpg" }}' class="card-img-top" alt="pilotImage" (error)="handleMissingImage($event)" (click)="getDetail(film)">
+                <img src='{{ "../../../../../assets/img/films/" + film.id + ".jpg" }}' class="card-img-top" alt="filmImage" (error)="handleMissingImage($event)" (click)="getDetail(film)">
                 <div class="card-body">
                     <p class="card-text">{{film.title | uppercase}}</p>
                 </div>

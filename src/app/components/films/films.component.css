@@ -1,0 +1,11 @@
+.card {
+    width: 18rem;
+}
+
+.cards {
+    display: flex;
+    align-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
