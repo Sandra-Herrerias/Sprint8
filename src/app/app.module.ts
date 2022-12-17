@@ -1,3 +1,4 @@
+import { StarshipsServiceMockService } from 'src/app/mocks/starships-service-mock.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -42,7 +43,7 @@ import { FilmDetailComponent } from './components/film-detail/film-detail.compon
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [StarshipsService],
+  providers: [StarshipsService,StarshipsServiceMockService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
