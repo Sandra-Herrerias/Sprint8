@@ -4,7 +4,7 @@
             <section class="cards">
                 <div class="card m-4 text-white bg-dark">
                     <img src='{{ "../../../assets/img/starships/" + imgId + ".jpg" }}' alt="starshipImage" (error)="handleMissingImage($event)">
-                    <div class="card-body">
+                    <div class="card-body borderBody">
                         <h2 class="card-text">{{ starshipSelected.name | uppercase}}</h2>
                     </div>
                 </div>
@@ -131,12 +131,14 @@
                 </div>
             </div>
         </div>
-        <h2 class="text-center m-3 mt-5">CHARACTERS</h2>
+
         <div *ngIf="pilots">
+            <h2 class="text-center m-3 mt-5">CHARACTERS</h2>
             <app-pilots [starshipDetails]="starshipSelected"></app-pilots>
         </div>
-        <h2 class="text-center m-3 mt-5">FILMS</h2>
+
         <div *ngIf="films" class="mb-5">
+            <h2 class="text-center m-3 mt-5">FILMS</h2>
             <app-films [starshipDetails]="starshipSelected"></app-films>
         </div>
     </div>
