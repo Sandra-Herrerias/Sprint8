@@ -25,14 +25,10 @@ export class HeaderComponent implements OnInit {
          id:result.id
        };
      }
-    
-     // console.log(this.loggedIn)
    })
   }
 
   logout(): void {
     this.userService.logout();
   }
-
-
 }
