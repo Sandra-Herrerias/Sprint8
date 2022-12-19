@@ -39,17 +39,23 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-   
     // stop here if form is invalid
     if (this.registerForm.valid) {
-      console.log("valid");
-      this.userService.register(this.registerForm.value);
-    }else{
-      console.log("no valid");
- return;
+      let existsUser = this.userService.getUsersStored().some(user => {
+        let currentUser = user.username;
+        let formUser = this.registerForm.value.username;
+        return currentUser == formUser;
+      });
+
+      if (existsUser) {
+        alert("Insert new username, this one already exists");
+      }else{
+         this.userService.register(this.registerForm.value);
+      }
+
+    } else {
+      return;
     }
-console.log(this.registerForm.value);
-      
   }
 }
 

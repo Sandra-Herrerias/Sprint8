@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
     this.loginForm = this.formBuilder.group({
-      username: ['',[Validators.required, Validators.email]],
+      username: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
   }
@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       console.log("valid");
       this.userService.login(this.loginForm.value);
+      console.log(this.loginForm.value);
     } else {
       console.log("no valid");
       return;
