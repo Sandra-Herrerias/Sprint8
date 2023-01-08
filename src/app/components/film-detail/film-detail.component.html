@@ -2,7 +2,7 @@
 
     <div class="container centered mb-5">
         <section class="cards">
-            <div class="card bg-dark">
+            <div *ngIf="filmImg" class="card bg-dark">
                 <img src='{{ "../../../../../assets/img/films/" + id + ".jpg" }}' class="card-img-top" alt="filmImage" />
 
                 <div class="card-body">

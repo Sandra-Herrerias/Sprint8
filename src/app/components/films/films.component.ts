@@ -9,12 +9,12 @@ import { Film } from 'src/app/model/film';
   templateUrl: './films.component.html',
   styleUrls: ['./films.component.css']
 })
-export class FilmsComponent {
+export class FilmsComponent implements OnInit{
   @Input() starshipDetails!: Starship;
 
   films: Film[] = [];
 
-  constructor(private serviceStarships: StarshipsService, private router: Router) {}
+  constructor(private serviceStarships: StarshipsService, private router: Router) { }
 
   public handleMissingImage(event: Event) {
     (event.target as HTMLImageElement).src = "../../../../../assets/img/starships/big-placeholder.jpg";
@@ -22,9 +22,8 @@ export class FilmsComponent {
 
   ngOnInit(): void {
     this.getFilms();
-   
-  }
 
+  }
 
   getFilms(): void {
     this.starshipDetails.films!.forEach((film: string) => {
@@ -33,13 +32,11 @@ export class FilmsComponent {
 
         data.id = data.url.split('/')[5];
         this.films.push(data);
-        console.log(this.films);
       });
     });
   }
 
-  getDetail(e:any) {
-    console.log(e);
-    this.router.navigate(['/filmDetail'], {queryParams: {url: e.url}});
+  getDetail(e: any) {
+    this.router.navigate(['/filmDetail'], { queryParams: { url: e.url } });
   }
 }

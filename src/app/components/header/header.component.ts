@@ -15,17 +15,16 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.user.subscribe((result: User) => {
-      console.log(result); 
-     if (result) {
-       this.loggedIn = {
-         firstName: result.firstName, 
-         lastName: result.lastName, 
-         password: result.password, 
-         username: result.username,
-         id:result.id
-       };
-     }
-   })
+      if (result) {
+        this.loggedIn = {
+          firstName: result.firstName,
+          lastName: result.lastName,
+          password: result.password,
+          username: result.username,
+          id: result.id
+        };
+      }
+    })
   }
 
   logout(): void {

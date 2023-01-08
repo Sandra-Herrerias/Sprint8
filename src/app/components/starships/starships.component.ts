@@ -10,38 +10,40 @@ import { StarshipsService } from 'src/app/services/starships.service';
 })
 export class StarshipsComponent implements OnInit {
 
-  starships:Array<Starship> = [];
-  starship!:Starship;
+  starships: Array<Starship> = [];
+  starship!: Starship;
   page = 1;
   throttle = 0;
   distance = 2;
+  totalShips = 0;
 
   constructor(private serviceStarships: StarshipsService,
-    private router:Router) { }
+    private router: Router) { }
 
   ngOnInit(): void {
-
     this.getList();
   }
 
-  getList():void{
-      this.serviceStarships.getStarships(this.page).subscribe( (data:any) => {
+  getList(): void {
+    this.serviceStarships.getStarships(this.page).subscribe((data: any) => {
       this.starships = data.results;
     });
   }
 
 
   onScroll(): void {
-    this.serviceStarships
-      .getStarships(++this.page)
-      .subscribe((data: any) => {
-        this.starships.push(...data.results);
-      });
+    
+    if(this.totalShips == 0 || this.totalShips > this.starships.length ){
+      this.serviceStarships
+        .getStarships(++this.page)
+        .subscribe((data: any) => {
+          this.starships.push(...data.results);
+          this.totalShips = data.count;
+        });
+      }
   }
 
-  getDetail(e:any){
-
-    this.router.navigate(['/detail'], {queryParams: {url: e.url}});
+  getDetail(e: any) {
+    this.router.navigate(['/detail'], { queryParams: { url: e.url } });
   }
-
 }

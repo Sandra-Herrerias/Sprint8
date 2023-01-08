@@ -14,18 +14,13 @@ export class StarshipsService {
   //url!: any;
   constructor(private http: HttpClient) { }
 
-  getStarships(page: number): Observable<Starship[]> {
-
+  getStarships(page: number): Observable<Starship[]> { 
     return this.http.get(
       `https://swapi.dev/api/starships/?page=${page}`
     ) as Observable<Starship[]>;
   }
 
-
   getResource(url: string): Observable<any> {
     return this.http.get(url);
   }
-
-
-
 }

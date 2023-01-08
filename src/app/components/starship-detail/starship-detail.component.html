@@ -2,7 +2,7 @@
     <div *ngIf="starshipSelected">
         <div class="centered">
             <section class="cards">
-                <div class="card m-4 text-white bg-dark">
+                <div *ngIf="imgId" class="card m-4 text-white bg-dark">
                     <img src='{{ "../../../assets/img/starships/" + imgId + ".jpg" }}' alt="starshipImage" (error)="handleMissingImage($event)">
                     <div class="card-body borderBody">
                         <h2 class="card-text">{{ starshipSelected.name | uppercase}}</h2>

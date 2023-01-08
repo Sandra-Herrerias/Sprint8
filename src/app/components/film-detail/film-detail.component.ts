@@ -8,29 +8,27 @@ import { StarshipsService } from 'src/app/services/starships.service';
   templateUrl: './film-detail.component.html',
   styleUrls: ['./film-detail.component.css']
 })
-export class FilmDetailComponent {
+export class FilmDetailComponent implements OnInit{
 
   filmDetails!: Film;
   urlRoute!: string;
-  filmImg!:string;
-  id!:string;
+  filmImg!: string;
+  id!: string;
   constructor(private serviceStarships: StarshipsService,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.urlRoute = params['url'];
     });
-    console.log(this.urlRoute);
+
     this.getFilmSelected();
-    this. getFilmImg();
+    this.getFilmImg();
   }
 
   getFilmSelected() {
     this.serviceStarships.getResource(this.urlRoute).subscribe(data => {
       this.filmDetails = data;
-     
-      console.log(this.filmDetails);
     });
   }
 
@@ -38,10 +36,7 @@ export class FilmDetailComponent {
     this.serviceStarships.getResource(this.urlRoute!).subscribe((data: any) => {
 
       this.id = data.url.split('/')[5];
-      this.filmImg= this.id;
-
-      console.log( this.id);
-
+      this.filmImg = this.id;
     });
-}
+  }
 }

@@ -2,7 +2,7 @@
 
     <div class="container centered mb-5">
         <section class="cards">
-            <div class="card bg-dark">
+            <div *ngIf="pilotImg" class="card bg-dark">
                 <img src='{{ "../../../../../assets/img/characters/" + id + ".jpg" }}' class="card-img-top" alt="pilotImage" />
                 <div class="card-body">
                     <h2 class="m-5">{{pilotDetails.name | uppercase}}</h2>

@@ -40,7 +40,6 @@ describe('HeaderComponent', () => {
     fixture.debugElement.query(By.css('a.reg')).nativeElement.click();
     fixture.whenStable().then(() => {
       expect(location.path()).toEqual('/login');
-      console.log('after expect');
     });
   })));
 });

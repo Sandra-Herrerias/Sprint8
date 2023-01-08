@@ -15,7 +15,7 @@ export class PilotsComponent implements OnInit {
 
   pilots: Pilot[] = [];
 
-  constructor(private serviceStarships: StarshipsService, private router: Router) {}
+  constructor(private serviceStarships: StarshipsService, private router: Router) { }
 
   public handleMissingImage(event: Event) {
     (event.target as HTMLImageElement).src = "../../../../../assets/img/starships/big-placeholder.jpg";
@@ -23,9 +23,7 @@ export class PilotsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPilots();
-    console.log(this.starshipDetails.films);
   }
-
 
   getPilots(): void {
     this.starshipDetails.pilots!.forEach((pilot: string) => {
@@ -34,14 +32,11 @@ export class PilotsComponent implements OnInit {
 
         data.id = data.url.split('/')[5];
         this.pilots.push(data);
-
-
       });
     });
   }
 
-  getDetail(e:any) {
-    console.log(e);
-    this.router.navigate(['/pilotDetail'], {queryParams: {url: e.url}});
+  getDetail(e: any) {
+    this.router.navigate(['/pilotDetail'], { queryParams: { url: e.url } });
   }
 }

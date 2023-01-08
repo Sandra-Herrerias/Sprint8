@@ -2,6 +2,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
+import { User } from 'src/app/model/user';
 
 @Component({
   selector: 'app-login',
@@ -12,17 +13,16 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
   submitted = false;
+  usersStored!: User[];
 
   constructor(private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router,
     public userService: UsersService) { }
 
   ngOnInit(): void {
 
     this.loginForm = this.formBuilder.group({
       username: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
@@ -31,16 +31,25 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
+    let userFound: User | undefined;
+    this.usersStored = this.userService.getUsersStored();
     // stop here if form is invalid
-    if (this.loginForm.valid) {
-      console.log("valid");
-      this.userService.login(this.loginForm.value);
-      console.log(this.loginForm.value);
-    } else {
-      console.log("no valid");
-      return;
+    if (this.loginForm.valid && 
+      this.usersStored != null && 
+      this.usersStored !== undefined) {
+
+      userFound = this.usersStored.find((userLogged) => {
+        return userLogged.username === this.loginForm.value.username && 
+        userLogged.password === this.loginForm.value.password;
+      });
+    
+      if (userFound) this.userService.login(this.loginForm.value);
+      if (!userFound) alert("Wrong credentials");
+
+    } else if(this.loginForm.valid &&
+      this.usersStored == null ||
+      this.usersStored == undefined){
+        alert("Create new user, this one doesn't exist");
     }
-    console.log(this.loginForm.value);
   }
 }
